@@ -8,6 +8,8 @@
 </div> */
 //crear 1  imagen
 
+import { registraImagen } from "./lazy.js";
+
 const minumum = 1;
 const maximum = 122;
 const random = () =>  Math.floor(Math.random() * (maximum - minumum)) + minumum;
@@ -34,12 +36,14 @@ const nuevaImagen = createImagenNode();
 const mountNode = document.getElementById('images');
 
 const addButton = document.querySelector('button');
-const accion = () => {
+
+const addImagen = () => {
     const newImagen = createImagenNode();
     mountNode.appendChild(newImagen);
+    registraImagen(newImagen);
 };
 
-addButton.addEventListener('click', accion);
+addButton.addEventListener('click', addImagen);
 
 
 
